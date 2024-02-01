@@ -4,16 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/styles.css">
-    <title>Calculateur d'Adresse IP</title>
+    <title>Calculateur d'adresse IP</title>
 </head>
 <body>
-    <div class="container">
-        <h1>Calculateur d'Adresse IP</h1>
-        <label for="ipInput">Insérez une Adresse IP:</label>
-        <input type="text" id="ipInput" placeholder="192.168.0.1">
+    <div class="calculator">
+        <h1>Calculateur d'adresse IP</h1>
+        <label for="ipAddress">Adresse IP:</label>
+        <input type="text" id="ipAddress" placeholder="Entrez l'adresse IP">
+
+        <label for="subnetMask">Masque de sous-réseau:</label>
+        <input type="text" id="subnetMask" placeholder="Entrez le masque de sous-réseau">
+
         <button onclick="calculate()">Calculer</button>
-        <div id="result"></div>
+
+        <h2>Résultats</h2>
+        <div id="results"></div>
     </div>
+
     <script src="./js/script.js"></script>
 </body>
 </html>

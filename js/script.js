@@ -1,60 +1,69 @@
 function calculate() {
-    var ipInput = document.getElementById("ipInput").value;
-    var resultElement = document.getElementById("result");
+    var ipAddress = document.getElementById('ipAddress').value;
+    var subnetMask = document.getElementById('subnetMask').value;
 
-    if (!isValidIP(ipInput)) {
-        resultElement.innerHTML = '<p class="error-message">Adresse IP invalide. Veuillez entrer une adresse IP valide.</p>';
-        return;
-    }
-    var octets = ipInput.split('.');
-
-    var ipClass;
-    if (octets[0] >= 1 && octets[0] <= 126) {
-        ipClass = "A";
-    } else if (octets[0] >= 128 && octets[0] <= 191) {
-        ipClass = "B";
-    } else if (octets[0] >= 192 && octets[0] <= 223) {
-        ipClass = "C";
-    } else {
-        resultElement.innerHTML = "Classe d'adresse IP non supportée.";
+    // Vérification des champs
+    if (!ipAddress || !subnetMask) {
+        alert("Veuillez remplir tous les champs.");
         return;
     }
 
-    var mask;
-    if (ipClass === "A") {
-        mask = "255.0.0.0";
-    } else if (ipClass === "B") {
-        mask = "255.255.0.0";
-    } else if (ipClass === "C") {
-        mask = "255.255.255.0";
+    // Vérification de l'adresse IP
+    if (!isValidIP(ipAddress)) {
+        alert("Adresse IP invalide.");
+        return;
     }
 
-    var networkAddress = octets.slice(0, 3).join('.') + ".0";
-    var startRange = networkAddress + ".1";
-    var endRange = networkAddress + ".254";
+    // Conversion des adresses IP et masques en tableau de nombres
+    var ipArray = ipAddress.split('.').map(Number);
+    var subnetArray = subnetMask.split('.').map(Number);
 
-    resultElement.innerHTML = `
-        Adresse IP: ${ipInput} <br>
-        Classe: ${ipClass} <br>
-        Masque Réseau: ${mask} <br>
-        Plage d'Adresse IP: de ${startRange} à ${endRange}
-    `;
+    // Calcul de la classe de l'adresse IP
+    var ipClass = calculateIPClass(ipArray[0]);
+
+    // Calcul de l'adresse réseau
+    var networkArray = ipArray.map(function (octet, index) {
+        return octet & subnetArray[index];
+    });
+
+    // Calcul de l'adresse de diffusion
+    var broadcastArray = ipArray.map(function (octet, index) {
+        return (octet & subnetArray[index]) | (~subnetArray[index] & 255);
+    });
+
+    // Calcul du CIDR
+    var cidr = subnetArray.reduce(function (count, octet) {
+        return count + octet.toString(2).split('1').length - 1;
+    }, 0);
+
+    // Affichage des résultats
+    var results = "Adresse IP: " + ipArray.join('.') + "<br>" +
+                  "Masque de sous-réseau: " + subnetArray.join('.') + "<br>" +
+                  "Adresse réseau: " + networkArray.join('.') + "<br>" +
+                  "Adresse de diffusion: " + broadcastArray.join('.') + "<br>" +
+                  "CIDR: /" + cidr + "<br>" +
+                  "Classe: " + ipClass + "<br>";
+
+    document.getElementById('results').innerHTML = results;
 }
 
 function isValidIP(ip) {
+    var ipRegex = /^(\d{1,3}\.){3}(\d{1,3})$/;
+    return ipRegex.test(ip);
+}
 
-
-    var octets = ip.split('.');
-    if (octets.length !== 4) {
-        return false;
+function calculateIPClass(firstOctet) {
+    if (firstOctet >= 1 && firstOctet <= 126) {
+        return "A";
+    } else if (firstOctet >= 128 && firstOctet <= 191) {
+        return "B";
+    } else if (firstOctet >= 192 && firstOctet <= 223) {
+        return "C";
+    } else if (firstOctet >= 224 && firstOctet <= 239) {
+        return "D";
+    } else if (firstOctet >= 240 && firstOctet <= 255) {
+        return "E";
+    } else {
+        return "Unknown";
     }
-
-    for (var i = 0; i < 4; i++) {
-        var octet = parseInt(octets[i]);
-        if (isNaN(octet) || octet < 0 || octet > 255) {
-            return false;
-        }
-    }
-
-    return true;
 }
