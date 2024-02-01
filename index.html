@@ -3,9 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="./css/styles.css">
+    <title>Calculateur d'Adresse IP</title>
 </head>
 <body>
-    <h1>TESTSTTTTS</h1>
+    <div class="container">
+        <h1>Calculateur d'Adresse IP</h1>
+        <label for="ipInput">Entrez une Adresse IP:</label>
+        <input type="text" id="ipInput" placeholder="192.168.0.1">
+        <button onclick="calculate()">Calculer</button>
+        <div id="result"></div>
+    </div>
+
+    <script src="./js/script.js"></script>
 </body>
 </html>
