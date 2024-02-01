@@ -43,3 +43,7 @@ button:hover {
 #result {
     margin-top: 20px;
 }
+
+.error-message {
+    color: #ff0000; /* Rouge */
+}

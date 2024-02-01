@@ -3,10 +3,9 @@ function calculate() {
     var resultElement = document.getElementById("result");
 
     if (!isValidIP(ipInput)) {
-        resultElement.innerHTML = "Adresse IP invalide. Veuillez entrer une adresse IP valide.";
+        resultElement.innerHTML = '<p class="error-message">Adresse IP invalide. Veuillez entrer une adresse IP valide.</p>';
         return;
     }
-
     var octets = ipInput.split('.');
 
     var ipClass;
