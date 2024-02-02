@@ -4,11 +4,11 @@ function calculate() {
     var subnetMask = document.getElementById('subnetMask').value;
 
     if (button.innerHTML === 'Calculer') {
-        //Annuler
+        // Annuler
         button.style.backgroundColor = '#ff5050';
         button.innerHTML = 'Annuler';
 
-        //Verif input
+        // Verif input
         if (!ipAddress || !subnetMask) {
             alert("Veuillez remplir tous les champs.");
             resetCalculateButton();
@@ -55,9 +55,15 @@ function calculate() {
 
         document.getElementById('results').innerHTML = results;
 
+        // Ajouter cette ligne pour ajouter la classe results-shown
+        document.getElementById('calculator').classList.add('results-shown');
+
     } else if (button.innerHTML === 'Annuler') {
         resetCalculateButton();
         document.getElementById('results').innerHTML = '';
+
+        // Ajouter cette ligne pour supprimer la classe results-shown
+        document.getElementById('calculator').classList.remove('results-shown');
     }
 }
 
