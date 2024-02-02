@@ -10,17 +10,15 @@
     <div class="calculator">
         <h1>Calculateur d'adresse IP</h1>
         <label for="ipAddress">Adresse IP:</label>
-        <input type="text" id="ipAddress" placeholder="Entrez l'adresse IP">
+        <input type="text" id="ipAddress" placeholder="Aadresse IP">
 
         <label for="subnetMask">Masque de sous-réseau:</label>
-        <input type="text" id="subnetMask" placeholder="Entrez le masque de sous-réseau">
+        <input type="text" id="subnetMask" placeholder="Masque réseau">
 
-        <button onclick="calculate()">Calculer</button>
-
+        <button id="calculateButton" onclick="calculate()">Calculer</button>
         <h2>Résultats</h2>
         <div id="results"></div>
     </div>
-
     <script src="./js/script.js"></script>
 </body>
 </html>

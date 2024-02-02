@@ -12,9 +12,9 @@ body {
 .calculator {
     background-color: #ffffff;
     padding: 30px;
-    border-radius: 8px;
+    border-radius: 23px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: center; /* Nouvelle règle pour centrer le contenu horizontalement */
+    text-align: center; 
 }
 
 label {
@@ -23,7 +23,7 @@ label {
 }
 
 input {
-    width: calc(100% - 16px); /* Largeur ajustée pour laisser de l'espace pour le padding */
+    width: calc(100% - 16px);
     padding: 8px;
     margin-bottom: 10px;
 }
