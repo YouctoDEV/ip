@@ -47,22 +47,20 @@ function calculate() {
         }, 0);
 
         var results = "Adresse IP: " + ipArray.join('.') + "<br>" +
-                      "Masque de sous-réseau: " + subnetArray.join('.') + "<br>" +
-                      "Adresse réseau: " + networkArray.join('.') + "<br>" +
-                      "Adresse de diffusion: " + broadcastArray.join('.') + "<br>" +
-                      "CIDR: /" + cidr + "<br>" +
-                      "Classe: " + ipClass + "<br>";
+            "Masque de sous-réseau: " + subnetArray.join('.') + "<br>" +
+            "Adresse réseau: " + networkArray.join('.') + "<br>" +
+            "Adresse de diffusion: " + broadcastArray.join('.') + "<br>" +
+            "CIDR: /" + cidr + "<br>" +
+            "Classe: " + ipClass + "<br>";
 
-        document.getElementById('results').innerHTML = results;
-
-        // Ajouter cette ligne pour ajouter la classe results-shown
+        document.getElementById('results').innerHTML = results
         document.getElementById('calculator').classList.add('results-shown');
 
     } else if (button.innerHTML === 'Annuler') {
         resetCalculateButton();
         document.getElementById('results').innerHTML = '';
 
-        // Ajouter cette ligne pour supprimer la classe results-shown
+        
         document.getElementById('calculator').classList.remove('results-shown');
     }
 }
@@ -103,4 +101,4 @@ function calculateIPClass(firstOctet) {
     } else {
         return "Unknown";
     }
-}
+    }
