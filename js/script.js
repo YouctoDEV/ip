@@ -42,25 +42,35 @@ function calculate() {
             return (octet & subnetArray[index]) | (~subnetArray[index] & 255);
         });
 
+        var firstHostArray = networkArray.slice();  
+        firstHostArray[3] += 1;  
+
+        var lastHostArray = broadcastArray.slice();  
+        lastHostArray[3] -= 1;  
+
+        var firstHost = firstHostArray.join('.');
+        var lastHost = lastHostArray.join('.');
+
         var cidr = subnetArray.reduce(function (count, octet) {
             return count + octet.toString(2).split('1').length - 1;
         }, 0);
 
-        var results = "Adresse IP: " + ipArray.join('.') + "<br>" +
-            "Masque de sous-réseau: " + subnetArray.join('.') + "<br>" +
-            "Adresse réseau: " + networkArray.join('.') + "<br>" +
-            "Adresse de diffusion: " + broadcastArray.join('.') + "<br>" +
-            "CIDR: /" + cidr + "<br>" +
-            "Classe: " + ipClass + "<br>";
+        var results = "<strong>" + "Adresse IP: " + "</strong>" + ipArray.join('.') + "<br>" +
+            "<strong>" + "Masque de sous-réseau: " + "</strong>" + subnetArray.join('.') + "<br>" +
+            "<strong>" + "Adresse réseau: "  + "</strong>" + networkArray.join('.') + "<br>" +
+            "<strong>" + "Première adresse IP du réseau: " + "</strong>" + firstHost + "<br>" +
+            "<strong>" + "Dernière adresse IP du réseau: " + "</strong>" + lastHost + "<br>" +
+            "<strong>" + "Adresse de diffusion: " + "</strong>" + broadcastArray.join('.') + "<br>" +
+            "<strong>" + "CIDR: /" + "</strong>" + cidr + "<br>" +
+            "<strong>" + "Classe: " + "</strong>" + ipClass + "<br>";
 
-        document.getElementById('results').innerHTML = results
+        document.getElementById('results').innerHTML = results;
         document.getElementById('calculator').classList.add('results-shown');
 
     } else if (button.innerHTML === 'Annuler') {
         resetCalculateButton();
         document.getElementById('results').innerHTML = '';
 
-        
         document.getElementById('calculator').classList.remove('results-shown');
     }
 }
