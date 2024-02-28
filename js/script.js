@@ -1,7 +1,5 @@
 function redirigerVersLien(lien) {
-    // Remplacez 'BASE_URL' par la base URL de votre site si nécessaire.
-    // Ajoutez des liens spécifiques pour "Adresse IP" et "Masque de sous-réseau".
-    var base_url = 'BASE_URL'; // Remplacez par la base URL de votre site si nécessaire.
+    var base_url = 'BASE_URL';
     var url;
 
     switch (lien) {
@@ -15,7 +13,7 @@ function redirigerVersLien(lien) {
             url = base_url;
     }
 
-    // Redirection vers le lien spécifié.
+    // Redirection vers le lien spécifi
     window.location.href = url;
 }
 

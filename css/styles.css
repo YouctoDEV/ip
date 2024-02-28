@@ -49,3 +49,11 @@ h2 {
     margin-top: 20px;
 }
 
+label[for="ipAddress"] {
+    cursor: pointer;
+}
+
+label[for="subnetMask"] {
+    cursor: pointer;
+}
+
