@@ -1,3 +1,24 @@
+function redirigerVersLien(lien) {
+    // Remplacez 'BASE_URL' par la base URL de votre site si nécessaire.
+    // Ajoutez des liens spécifiques pour "Adresse IP" et "Masque de sous-réseau".
+    var base_url = 'BASE_URL'; // Remplacez par la base URL de votre site si nécessaire.
+    var url;
+
+    switch (lien) {
+        case 'lien_adresse_ip':
+            url = 'https://www.jechange.fr/telecom/internet/adresse-ip';
+            break;
+        case 'lien_masque_reseau':
+            url = 'https://www.cloudflare.com/fr-fr/learning/network-layer/what-is-a-subnet/';
+            break;
+        default:
+            url = base_url;
+    }
+
+    // Redirection vers le lien spécifié.
+    window.location.href = url;
+}
+
 function calculate() {
     var button = document.getElementById('calculateButton');
     var ipAddress = document.getElementById('ipAddress').value;

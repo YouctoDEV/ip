@@ -17,7 +17,7 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center; 
     display: flex;
-    flex-direction: column; /* Ajout de cette ligne pour utiliser la disposition en colonne */
+    flex-direction: column;
 }
 
 label {
@@ -38,7 +38,7 @@ button {
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    margin-top: auto; /* Cela positionne le bouton en bas du conteneur */
+    margin-top: auto; 
 }
 
 button:hover {
@@ -49,47 +49,3 @@ h2 {
     margin-top: 20px;
 }
 
-.aidIP {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-
-.IPinfo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    text-align: center;
-}
-
-.aidefip {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-
-.aidefipinfo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    text-align: center;
-}
-
-.aideMr {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-
-.FindMR {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    text-align: center;
-}
