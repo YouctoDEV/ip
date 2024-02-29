@@ -74,15 +74,19 @@ function calculate() {
             return count + octet.toString(2).split('1').length - 1;
         }, 0);
 
-        var results = "<strong>" + "Adresse IP: " + "</strong>" + ipArray.join('.') + "<br>" +
-            "<strong>" + "Masque de sous-réseau: " + "</strong>" + subnetArray.join('.') + "<br>" +
-            "<strong>" + "Adresse réseau: "  + "</strong>" + networkArray.join('.') + "<br>" +
-            "<strong>" + "Première adresse IP du réseau: " + "</strong>" + firstHost + "<br>" +
-            "<strong>" + "Dernière adresse IP du réseau: " + "</strong>" + lastHost + "<br>" +
-            "<strong>" + "Adresse de diffusion: " + "</strong>" + broadcastArray.join('.') + "<br>" +
-            "<strong>" + "CIDR: /" + "</strong>" + cidr + "<br>" +
-            "<strong>" + "Classe: " + "</strong>" + ipClass + "<br>";
-
+        var numberOfHosts = Math.pow(2, 32 - parseInt(cidr)) - 2;
+        var results = "<table>" +
+            "<tr><td><strong>Adresse IP:</strong></td><td>" + ipArray.join('.') + "</td></tr>" +
+            "<tr><td><strong>Masque de sous-réseau:</strong></td><td>" + subnetArray.join('.') + "</td></tr>" +
+            "<tr><td><strong>Adresse réseau:</strong></td><td>" + networkArray.join('.') + "</td></tr>" +
+            "<tr><td><strong>Première adresse IP du réseau:</strong></td><td>" + firstHost + "</td></tr>" +
+            "<tr><td><strong>Dernière adresse IP du réseau:</strong></td><td>" + lastHost + "</td></tr>" +
+            "<tr><td><strong>Adresse de diffusion:</strong></td><td>" + broadcastArray.join('.') + "</td></tr>" +
+            "<tr><td><strong>CIDR:</strong></td><td>/" + cidr + "</td></tr>" +
+            "<tr><td><strong>Classe:</strong></td><td>" + ipClass + "</td></tr>" +
+            "<tr><td><strong>Nombre de machines dans le réseau:</strong></td><td>" + numberOfHosts + "</td></tr>" +
+            "</table>";
+        
         document.getElementById('results').innerHTML = results;
         document.getElementById('calculator').classList.add('results-shown');
 

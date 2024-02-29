@@ -15,7 +15,7 @@ body {
     padding: 30px;
     border-radius: 23px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: center; 
+    text-align: start;
     display: flex;
     flex-direction: column;
 }
@@ -54,6 +54,7 @@ button:hover {
 
 h2 {
     margin-top: 20px;
+    text-align: center;
 }
 
 label[for="ipAddress"] {
