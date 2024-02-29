@@ -13,7 +13,7 @@ function redirigerVersLien(lien) {
             url = base_url;
     }
 
-    // Redirection vers le lien spécifi
+    // Redirection vers le lien spécifiq
     window.location.href = url;
 }
 
@@ -118,17 +118,17 @@ function isValidSubnetMask(subnetMask) {
 function calculateIPClass(firstOctet) {
     if (firstOctet >= 1 && firstOctet <= 126) {return "A";
     } 
-     if (firstOctet >= 128 && firstOctet <= 191) {
+    if (firstOctet >= 128 && firstOctet <= 191) {
         return "B";
     } 
-     if (firstOctet >= 192 && firstOctet <= 223) {
+    if (firstOctet >= 192 && firstOctet <= 223) {
         return "C";
     } 
-     if (firstOctet >= 224 && firstOctet <= 239) {
+    if (firstOctet >= 224 && firstOctet <= 239) {
         return "D";
     } 
-     if (firstOctet >= 240 && firstOctet <= 255) {
+    if (firstOctet >= 240 && firstOctet <= 255) {
         return "E";
     }   
-        return "Unknown";
-    }
+    return "Unknown";
+}
