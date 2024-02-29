@@ -35,7 +35,7 @@ function calculate() {
         }
 
         // Verif IP
-        if (!isValidIP(ipAddress)) {
+        if (!isValidIP(ipAddress) && ipAddress > 255) {
             alert("Adresse IP invalide.");
             resetCalculateButton();
             return;
