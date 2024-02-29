@@ -6,7 +6,7 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    height: 230vh;
+    height: 100vh;
     background-color: #f4f4f4;
 }
 
@@ -29,6 +29,8 @@ input {
     width: calc(100% - 16px);
     padding: 8px;
     margin-bottom: 10px;
+    border-radius: 50px;
+    border: none;
 }
 
 button {
