@@ -11,7 +11,7 @@ body {
 }
 
 .calculator {
-    background-color: #ffffff;
+    background-color: #cecece;
     padding: 30px;
     border-radius: 23px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -29,8 +29,12 @@ input {
     width: calc(100% - 16px);
     padding: 8px;
     margin-bottom: 10px;
-    border-radius: 50px;
+    border-radius: 25px;
     border: none;
+}
+
+input:focus {
+    outline: none;
 }
 
 button {
@@ -46,6 +50,7 @@ button {
 button:hover {
     background-color: #217400;
 }
+
 
 h2 {
     margin-top: 20px;
